@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>This will show a task</h1>
+
+
+<div class="task">
+   
+    <div class="content">
+      {{selected_task.first_name}}
+      <div class="description">
+        {{selected_task.description}}
+        <span class="duration">{{selected_task.duration}} mins</span>
+        <span class="duration">{{selected_task.user.first_name}}</span>
+        <span class="duration">{{selected_task.user.last_name}}</span>
+      </div>
+      <div class="buttons">
+        {% if selected_task.completed == True %}
+          <i class="fa fa-check fa-2x" style="color:green" aria-hidden="true"></i>
+        {% else %}
+          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+        {% endif %}
+      </div>
+      <a href="{{selected_task.id}}/edit">Edit</a>
+    </div>
+    
+  </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>This is where our task form goes</h1>
+<form action="/tasks" method="POST">
+    <!-- label for description -->
+    <label for="description">Description:</label>
+    <!-- input for description -->
+    <input type="text" id="description" name="description" placeholder="Description">
+
+    <!-- label for user -->
+    <label for="user">User:</label>
+    <!-- input for user -->
+    <select name="user" id="user" >
+        <option selected="true" disabled="disabled">Choose User</option>
+        <!-- Option for each user in the application -->
+        {% for user in all_users %}
+            <option value="{{ user.id }}">{{ user.first_name }}</option>
+        {% endfor %}
+    </select>
+
+    <!-- label for duration -->
+    <label for="duration">Description:</label>
+    <!-- input for duration -->
+    <input type="number" id="duration" name="duration" placeholder="Duration">
+
+    <!-- label for completed -->
+    <label for="completed">Completed:</label>
+    <!-- input for completed -->
+    <select name="completed" id="completed">
+        <option selected="true" disabled="disabled">Choose if Completed</option>
+        <option value="true">True</option>
+        <option value="false">False</option>
+    </select>
+
+    <!-- input to submit form -->
+    <input type="submit" value="Add Task">
+
+</form>
+
+
+{% endblock %}
